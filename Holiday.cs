@@ -6,6 +6,7 @@ namespace QuickType
     using System.Collections.Generic;
 
     using System.Globalization;
+    using System.Runtime.Serialization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
@@ -54,7 +55,15 @@ namespace QuickType
         public string Name { get; set; }
     }
 
-    public enum HolidayCategory { 放假之紀念日及節日, 星期六星期日, 特定節日, 補假, 補行上班日, 調整放假日 };
+    public enum HolidayCategory {
+        放假之紀念日及節日,
+        [EnumMember(Value = "星期六、星期日")]
+        星期六星期日,
+        特定節日,
+        補假,
+        補行上班日,
+        調整放假日
+    };
 
     public enum IsHoliday { 否, 是 };
 
